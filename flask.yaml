@@ -1,6 +1,6 @@
 ---
-- name: Deploy Flask App to Jenkins
-  hosts: jenkins-server
+- name: Deploy Flask App 
+  hosts: app-servers
   become: yes
 
   tasks:
@@ -13,7 +13,7 @@
 
   - name: Clone the Flask App repository
     git:
-      repo: https://github.com/user/flask-app.git
+      repo: https://github.com/CeeyIT-Solutions/flask-app.git
       dest: /opt/flask-app
 
   - name: Install Flask and its dependencies
@@ -26,5 +26,4 @@
     command: /opt/flask-env/bin/python3 /opt/flask-app/app.py
     async: 1
     poll: 0
-    
-    ...
+ ...
