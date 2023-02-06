@@ -16,10 +16,16 @@
           - python3-pip
           - git
 
-    - name: Clone the Flask App repository
+    - name: Create the destination folder
+      file:
+        path: /opt/flask-app
+        state: directory
+
+    - name: Clone the repository
       git:
         repo: https://github.com/CeeyIT-Solutions/flask-app.git
         dest: /opt/flask-app
+      when: not (stat /opt/flask-app/.git).exists
 
     - name: Install Flask and its dependencies
       pip:
@@ -31,4 +37,3 @@
       command: /opt/flask-env/bin/python3 /opt/flask-app/app.py
       async: 1
       poll: 0
-
