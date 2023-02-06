@@ -4,6 +4,11 @@
   become: yes
 
   tasks:
+    - name: Add the default Ubuntu repository
+      apt_repository:
+        repo: 'deb http://archive.ubuntu.com/ubuntu focal main'
+        state: present
+
     - name: Install required packages
       package:
         name:
@@ -26,3 +31,4 @@
       command: /opt/flask-env/bin/python3 /opt/flask-app/app.py
       async: 1
       poll: 0
+
