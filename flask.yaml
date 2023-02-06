@@ -22,10 +22,11 @@
         state: directory
 
     - name: Clone the repository
-      git:
-        repo: https://github.com/CeeyIT-Solutions/flask-app.git
-        dest: /opt/flask-app
-      when: not (stat /opt/flask-app/.git).exists
+  git:
+    repo: https://github.com/CeeyIT-Solutions/flask-app.git
+    dest: /opt/flask-app
+  when: not stat.exists("/opt/flask-app/.git")
+
 
     - name: Install Flask and its dependencies
       pip:
