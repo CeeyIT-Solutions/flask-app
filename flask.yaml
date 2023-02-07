@@ -32,6 +32,6 @@
         chdir: /opt/flask-app
 
     - name: Start the Flask App
-      command: python3 /opt/flask-app
+      command: python3 /opt/flask-app/app.py
       async: 1
       poll: 0
