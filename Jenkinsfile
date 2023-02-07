@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'main' }
+  agent any
   stages {
     stage('Ansible Deployment') {
       steps {
@@ -13,3 +13,4 @@ pipeline {
     }
   }
 }
+
