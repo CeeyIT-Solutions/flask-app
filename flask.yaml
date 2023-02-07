@@ -29,7 +29,6 @@
     - name: Install Flask and its dependencies
       pip:
         name: flask
-        virtualenv: /opt/flask-env
         chdir: /opt/flask-app
 
     - name: Start the Flask App
