@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'chmod 400 ./gem.pem'
                 sh '''
                 ansible-playbook flask.yaml -i hosts.ini
                 '''
